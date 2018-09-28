@@ -1,0 +1,60 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    block css
+      link(href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel='stylesheet')
+      link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet")
+      link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css")
+      link(rel='stylesheet', href='/css/style.css')
+      link(rel='stylesheet', href='/css/blue-footer.css')
+
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js")
+    block js
+
+  body
+    .container(style='{max-width: 30em;} ') 
+      br   
+      .panel.panel-default
+        .panel-heading Current State 
+        .panel-body        
+          form(action='/', method='post')
+            fieldset
+              .form-group.row
+                .col-sm-6
+                  label Bearer Type
+                  select.selectpicker.form-control(name='bidx')
+                    each bearer, i in bearers
+                      option(value=i) #{bearer}
+                .col-sm-6
+                  label Bearer Provider
+                  select.selectpicker.form-control(name='pidx')
+                    each provider, i in providers
+                      option(value=i) #{provider}
+              .form-group.row
+                .col-sm-12
+                  .pull-right
+                    button.btn.btn-primary(type='submit') report » 
+      br   
+      .panel.panel-default
+        .panel-heading Desired State 
+        .panel-body        
+          form(action='')
+            fieldset
+              .form-group.row
+                .col-xs-6
+                  label(for='Name') Bearer Type
+                  input#ip.form-control(type='text', name='ip', placeholder=db, required='')
+                .col-xs-6
+                  label(for='Name') Bearer Provider
+                  input#ip.form-control(type='text', name='ip', placeholder=dp, required='')
+
+
+
+
+
+    

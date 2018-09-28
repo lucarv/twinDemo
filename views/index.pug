@@ -1,0 +1,42 @@
+extends layout
+block content
+    br
+    .container(style='{max-width: 30em;} ')    
+        .panel.panel-default(style='margin-left: 15px; margin-right: 15px')
+            .panel-heading
+                h3.panel-title Desired State
+            .panel-body
+                form(action='/telemetry', method='post', id='tele')
+                    fieldset
+                        .form-group.row                      
+                            .col-xs-6
+                                label(for='Name') Bearer Type
+                                select#type.form-control(name='type', required='')
+                                    option(value='0')
+                                    option(value='1') GSM
+                                    option(value='2') WiFi
+                                    option(value='3') LoraWan
+                            .col-xs-6
+                                label(for='Name') Bearer Provider
+                                select#type.form-control(name='type', required='')
+                                    option(value='0')
+                                    option(value='1') A1
+                                    option(value='2') Tele2
+                                    option(value='3') T-Mobile
+                                    option(value='4') Loriot
+            .panel-footer.clearfix
+                .pull-right
+                    button.btn.btn-space.btn-default(type='submit', id='tele')  report »
+
+        hr
+        .panel.panel-default(style='margin-left: 15px; margin-right: 15px')
+            .panel-heading
+                h3.panel-title Desired State
+            .panel-body
+                .row
+                    .col-xs-6
+                        label(for='Name') Bearer Type
+                        input#ip.form-control(type='text', name='ip', placeholder='Name', required='')
+                    .col-xs-6
+                        label(for='Name') Bearer Provider
+                        input#ip.form-control(type='text', name='ip', placeholder='Name', required='')
